@@ -1,0 +1,45 @@
+En visual basic hacer lo guiente:-todas las DataTables ya existen en Mysql 
+
+Al dar click en el botón GENERAR; quiero que procese lo siguiente:
+
+Si el combobox mes.Text ya en pantalla y el TextBox año.Text ya en pantalla  y el RadioButonTodoslosCentros en pantalla está activo. 
+
+La primera columna de la DataTable “planilla” llamada IdPlanilla es integer auto incrementable 
+
+Luego va ir a leer el de la primera linea  tipo varchar que contiene la columna IdTrabajador de la Datatable “sueldos” 
+
+Al obtener el registro de la Columna IdTrabajador, tomara el registro y lo insertara en la Datatable “planillas” -donde está relacionado con llave foránea - que también contiene la columna IdTrabajador
+
+Una vez insertado el registro IdTrabajador en la primera fila vacia de la columna IdTrabajador de la DataTable “planillas” le asociara los registros en las columnas siguientes:
+
+Insertara en La columna CodigoPlanilla de la DataTable “planillas”, El registro que corresponda según el combobox mes en Pantalla así: Enero = 01, Febrero = 02, marzo = 03, Abril =04, Mayo = 05, Junio= 06, Julio= 07, Agosto = 08, Septiembre = 09, Octubre = 10, Noviembre = 11 y diciembre = 12. -esta columna esta relacionada con la DataTable “periodos” con llave foránea y es integer 
+
+Luego, insertara en la columna CodigoProyecto en la DataTable “Planilla, el registro asociado al IdTrabajadro, que contiene la columna CodigoProyecto en la Datatable Sueldos -con la que está relacionada con llave foránea.  
+
+En la columna Mes de la Datatable “planillas” insertara el mes que tenga el combox mes.Text tipo varchar
+
+En la columna Año de la Datatable “planillas” insertara el año que contenga el textbox año.text tipo year
+
+Continuara, insertando en la columna Puesto en la DataTable “Planilla”, El registro que tenga asociado el IdTrabajador en la columna Puesto en la DataTable trabajadores”; -tipo varchar-
+
+Luego, Insertara en la columna DiasTrabajados en la DataTable “Planilla” El dato que contiene la variable Dim DíasTrabajados as Integer”; 
+
+Tambien, Insertara en la columna HorasExtras en la DataTable “Planilla” El dato que contiene la variable Dim HorasExtras as Integer”; 
+
+Seguirá insertando en la columna SueldoOrdinario en la DataTable “Planilla”, el registro que obtenga de multiplicar la variable Dim DiasTrabajados as String multiplicado por el contenido que tenga asociado el IdTrabajador en la columna SueldoDiario que contiene la columna sueldo de la Datatable “sueldos”; tipo decimal
+
+Seguirá insertando en la columna SueldoExtraOrdinario en la DataTable “Planilla”, el registro que obtenga de multiplicar la variable Dim HorasExtras as Integer multiplicado por el contenido que tenga asociado el IdTrabajador en la columna SueldoDiario que contiene la columna sueldo de la Datatable “sueldos”; lo dividirá en 8 y lo multiplicara por la variable Dim HorasExtras as Integer tipo decimal
+
+Tambien, Insertara en la columna SueldoComision en la DataTable “Planilla” El dato que contiene la variable Dim SueldoComision as Decimal”; 
+
+Luego insertara en la columna bonificación en la DataTable “Planilla”, el registro que obtenga asociado el IdTrabajador en la columna bonificación que contiene la DataTable “sueldos” tipo de decimal;
+
+También insertara en la columna TotalDevengado en la DataTable “Planilla” la suma del registro en la columna SueldoOrdinario más la columna SueldoExtraOrdinario más la columna SueldoComision más la columna Bonificacion) tipo decimal;
+
+Luego, insertara en la columna DescuentoIgss en la DataTable “Planilla” El registro que obtenga asociado el IdTrabajador en la columna DescuentoIgss en la DataTable “sueldos” tipo decimal;
+
+Seguirá insertando en la columna DescuentoIsr en la DataTable “Planilla” el registro asociado que obtenga el IdTrabajador en la columna ISR que contiene la DataTable “sueldos” tipo decimal;
+
+Por ultimo, La columna TotalLiquido en la DataTable “Planilla” será producto de: Restar el contenido de la columna TotalDevengado, menos el registro insertado en la columna DescuentoIgss menos el registro insertado en la columna DescuentoIsr. 
+
+Una vez terminada la línea uno iterara con la segunda línea de la columna IdTrabajador de la DataTable “sueldos” aunque este duplicada en la DataTable “sueldos” siempre que el registro de la columna CodigoProyeto sea distinto de la primera line. y, así continuara con cada registro que contenga la DataTable “sueldos” para el mes que contenga en pantalla el Combobox Mes.text
